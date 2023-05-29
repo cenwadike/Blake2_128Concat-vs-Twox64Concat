@@ -39,7 +39,7 @@ pub mod pallet {
     #[pallet::storage]
     pub(super) type ArchiveStore<T: Config> = StorageMap<
         _,
-        Twox64Concat, // NOTE: Blake2_128Concat should be used here
+        Blake2_128Concat, // NOTE: Twox64Concat is not a correct hasher for the case
         T::Hash,
         BookSummary<T::AccountId, T::BlockNumber>,
         OptionQuery,
